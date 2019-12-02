@@ -1,6 +1,6 @@
 @extends('_frontend.template')
 
-@section('title', 'Sticky Footer Navbar Template · Bootstrap')
+@section('title', 'Home')
 
 @section('content')
 <h1 class="mt-5">Sticky footer with fixed navbar</h1>

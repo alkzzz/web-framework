@@ -7,11 +7,17 @@ Route::get('/', 'ShowHomePage')->name('home');
 Route::get('admin', 'ShowAdminPage')->name('admin');
 
 // Halaman Daftar Artikel
-Route::get('artikel', 'ArtikelController@index')->name('artikel.index');
+Route::get('artikel', 'GuestController@artikel')->name('artikel.index');
 
 // Halaman Detail Artikel
-Route::get('artikel/{id}', 'ArtikelController@detail')->name('artikel.detail');
+Route::get('artikel/{id}', 'GuestController@detail')->name('artikel.detail');
 
 Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
+// CRUD Artikel
+Route::get('/admin/artikel', 'ArtikelController@artikel_admin')->name('artikel.admin');
+Route::get('/admin/artikel/tambah', 'ArtikelController@artikel_tambah')->name('artikel.tambah');
+Route::post('/admin/artikel/simpan', 'ArtikelController@artikel_simpan')->name('artikel.simpan');
+Route::get('/admin/artikel/edit/{id}', 'ArtikelController@artikel_edit')->name('artikel.edit');
+Route::put('/admin/artikel/update/{id}', 'ArtikelController@artikel_update')->name('artikel.update');
+Route::delete('/admin/artikel/delete{id}', 'ArtikelController@artikel_delete')->name('artikel.delete');

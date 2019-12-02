@@ -1,5 +1,7 @@
 @extends('_frontend.template')
 
+@section('title', 'Daftar Artikel')
+
 @section('content')
 <h1 class="mt-5 mb-4" style="text-decoration: underline">Daftar Artikel</h1>
     @foreach($daftar_artikel->chunk(3) as $chunk)

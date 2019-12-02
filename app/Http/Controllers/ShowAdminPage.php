@@ -6,6 +6,12 @@ use Illuminate\Http\Request;
 
 class ShowAdminPage extends Controller
 {
+    // Constructor untuk mencek admin atau bukan
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+
     /**
      * Handle the incoming request.
      *
