@@ -1,8 +1,8 @@
 @extends('_backend.template')
 
-@section('title', 'Daftar Artikel')
+@section('title', 'Daftar Artikel Saya')
 
-@section('subtitle', 'Daftar Artikel')
+@section('subtitle', 'Daftar Artikel Saya')
 
 @section('content')
 <a class="btn btn-sm btn-success" href="{{ route('artikel.tambah') }}" role="button">Tambah</a>
@@ -12,6 +12,8 @@
         <tr>
             <th scope="col">#</th>
             <th scope="col">Judul Artikel</th>
+            <th scope="col">Diposting Oleh</th>
+            <th scope="col">Tanggal</th>
             <th scope="col">Aksi</th>
         </tr>
     </thead>
@@ -20,6 +22,8 @@
         <tr>
             <td>{{ $daftar_artikel->firstItem() + $key }}</td>
             <td>{{ $artikel->judul }}</td>
+            <td>{{ $artikel->user->name }}</td>
+            <td>{{ $artikel->created_at->format('j F Y') }}</td>
             <td>
                 <a class="btn btn-sm btn-warning" href="{{ route('artikel.edit', $artikel->id) }}" role="button">Edit</a>
                 <form style="display:inline-block" action="{{ route('artikel.delete', $artikel->id) }}" method="post" onclick="return confirm('Anda Yakin Ingin Menghapus Artikel?')">

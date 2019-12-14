@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Artikel;
+use Auth;
 
 class ArtikelController extends Controller
 {
@@ -14,7 +15,8 @@ class ArtikelController extends Controller
     }
 
     public function artikel_admin() {
-        $daftar_artikel = Artikel::latest()->paginate(5);
+        $user_id = Auth::user()->id;
+        $daftar_artikel = Artikel::where('user_id', $user_id)->latest()->paginate(5);
         return view('artikel.admin', compact('daftar_artikel'));
     }
 

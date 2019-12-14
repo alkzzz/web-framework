@@ -9,7 +9,7 @@ class GuestController extends Controller
 {
     // Halaman Depan
     public function artikel() {
-        $daftar_artikel = Artikel::all()->take(30);
+        $daftar_artikel = Artikel::paginate(3);
         return view('artikel.index', compact('daftar_artikel'));
     }
 

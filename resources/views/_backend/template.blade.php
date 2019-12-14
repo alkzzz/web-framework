@@ -63,10 +63,17 @@
             </a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="{{ route('artikel.admin') }}">
-              <span data-feather="file"></span>
-              Daftar Artikel
+            @if (Auth::user()->username == 'admin' )
+            <a class="nav-link" href="{{ route('daftar.user') }}">
+                <span data-feather="file"></span>
+                Daftar User
             </a>
+            @else
+            <a class="nav-link" href="{{ route('artikel.admin') }}">
+                <span data-feather="file"></span>
+                Daftar Artikel
+            </a>
+            @endif
           </li>
           <li class="nav-item">
             <a class="nav-link" href="{{ route('home') }}">

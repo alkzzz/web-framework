@@ -51,11 +51,11 @@
                         <a class="nav-link" href="{{ route('home') }}">Home <span class="sr-only">(current)</span></a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="{{ route('artikel.index') }}">Daftar Artikel</a>
+                        <a class="nav-link" href="{{ route('artikel.index') }}">Daftar Semua Artikel</a>
                     </li>
                     @auth
                     <li class="nav-item">
-                        <a class="nav-link" href="{{ route('admin') }}">Halaman Admin</a>
+                        <a class="nav-link" href="{{ route('admin') }}">Halaman Dashboard</a>
                     </li>
                     @endauth
                 </ul>
@@ -119,6 +119,7 @@
     <script src="{{ asset('js/bootstrap.bundle.min.js') }}"
         integrity="sha384-xrRywqdh3PHs8keKZN+8zzc5TX0GRTLCcmivcbNJWm2rs5C8PRhcEn3czEjhAO9o" crossorigin="anonymous">
     </script>
+    @yield('js')
 </body>
 
 </html>
